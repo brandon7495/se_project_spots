@@ -17,6 +17,10 @@
   margin: 0;
   font-size: 20px;
   line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 389px;
 }
 
 .card__like-button {
@@ -39,6 +43,7 @@
   .card__title {
     font-size: 16px;
     line-height: 1;
+    max-width: 267px;
   }
 
   .card__like-button {
