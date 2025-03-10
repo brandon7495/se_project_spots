@@ -6,7 +6,7 @@
 
 .profile__avatar {
   margin-right: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   width: 190px;
   height: 190px;
 }
@@ -53,6 +53,10 @@
   gap: 8px;
 }
 
+.profile__edit-button:hover {
+  opacity: 100%;
+}
+
 .profile__add-button {
   margin-left: auto;
   margin-top: auto;
@@ -61,11 +65,15 @@
   color: #fcf5e5;
   width: 149px;
   height: 52px;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   gap: 8px;
   align-items: center;
   justify-content: center;
+}
+
+.profile__add-button:hover {
+  opacity: 80%;
 }
 
 @media screen and (max-width: 629px) {
