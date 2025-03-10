@@ -12,4 +12,4 @@ An image sharing site with responsiveness for multiple screen sizes.
 
 This webpage is deployed through git hub pages at
 
--
+-https://brandon7495.github.io/se_project_spots/
