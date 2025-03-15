@@ -59,6 +59,7 @@
 
 .profile__add-button {
   font-weight: 500;
+  border: 0;
   margin-left: auto;
   margin-top: auto;
   cursor: pointer;
