@@ -19,3 +19,7 @@ This webpage is deployed through git hub pages at
 ![Tablet](https://github.com/brandon7495/se_project_spots/blob/main/Screenshot%202025-03-09%20233052.png?raw=true)
 
 ![Mobile](https://github.com/brandon7495/se_project_spots/blob/main/Screenshot%202025-03-09%20233212.png?raw=true)
+
+## Video
+
+[Watch the video](https://drive.google.com/file/d/1Nvv5cDZnosyB9_KiECNFaNAgJKB1LdYJ/view?usp=sharing)
