@@ -27,6 +27,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .profile__description {
@@ -38,6 +40,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .profile__edit-button {
