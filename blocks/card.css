@@ -87,5 +87,6 @@
   .card__like-button {
     width: 20px;
     height: 18px;
+    background-size: contain;
   }
 }
