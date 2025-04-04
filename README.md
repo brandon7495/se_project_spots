@@ -6,6 +6,7 @@ An image sharing site with responsiveness for multiple screen sizes.
 
 -HTML
 -CSS
+-JS
 -Responsive Design
 
 ## Deployment
