@@ -19,6 +19,7 @@
 
 .profile__name {
   margin: 0 0 12px;
+  line-height: 1;
   font-size: 32px;
   font-weight: 500;
   text-overflow: ellipsis;
@@ -33,6 +34,7 @@
 
 .profile__description {
   margin: 0;
+  line-height: 1;
   opacity: 70%;
   text-overflow: ellipsis;
   overflow: hidden;
