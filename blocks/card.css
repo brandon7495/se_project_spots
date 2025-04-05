@@ -37,7 +37,7 @@
   padding: 0;
   opacity: 0.4;
   cursor: pointer;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .card__like-button:hover {
@@ -47,7 +47,7 @@
 .card__like-button_liked {
   background-image: url(../images/heart-liked.svg);
   opacity: 1;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .card__like-button_liked:hover {
@@ -65,7 +65,7 @@
   margin: 0;
   padding: 0;
   cursor: pointer;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .card__delete-button:hover {
