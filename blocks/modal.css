@@ -98,6 +98,26 @@
   border-color: #212121;
 }
 
+.modal__input::placeholder {
+  color: #212121;
+  opacity: 30%;
+}
+
+.modal__input_type_error {
+  border: 1px solid #ff000099;
+}
+
+.modal__input_type_error:hover {
+  border-color: #ff0000;
+}
+
+.modal__error {
+  color: #ff0000;
+  opacity: 70%;
+  line-height: 1.1;
+  letter-spacing: 0%;
+}
+
 .modal__save-button {
   font-weight: 500;
   line-height: 1;
