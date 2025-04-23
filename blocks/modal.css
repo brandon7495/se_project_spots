@@ -131,6 +131,10 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+.modal__save-button-inactive {
+  opacity: 50%;
+}
+
 .modal__save-button:hover {
   opacity: 80%;
 }
