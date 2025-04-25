@@ -7,9 +7,6 @@ const settings = {
   errorClass: "modal__error",
 };
 
-// Why are we using these "settings" instead of using the code & classes that were already here?
-// I'm not sure I understand the benefit of adding all these "config" arguments.
-
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   errorElement.textContent = errorMessage;
@@ -35,7 +32,7 @@ const checkInputValidity = (formElement, inputElement, config) => {
   }
 };
 
-const hasInvalidInput = (inputList, config) => {
+const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
@@ -68,6 +65,10 @@ const setEventListeners = (formElement, config) => {
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
   toggleButtonState(inputList, buttonElement, config);
+
+  formElement.addEventListener("reset", () => {
+    disableButton(buttonElement, config);
+  });
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
