@@ -168,6 +168,7 @@
 
   .modal__container_type_preview {
     padding: 0;
+    max-width: 288px;
   }
 
   .modal__title {
@@ -195,6 +196,11 @@
   .modal__close-button_type_preview {
     top: -48px;
     right: 0;
+  }
+
+  .modal__image {
+    max-width: 288px;
+    width: 100%;
   }
 
   .modal__caption {
