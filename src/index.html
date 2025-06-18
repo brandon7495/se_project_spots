@@ -6,32 +6,26 @@
     <meta name="author" content="Brandon Holifield" />
     <meta name="description" content="Spots Landing Page" />
     <meta name="keywords" content="HTML, CSS" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img
-          src="./images/spots-logo.svg"
-          alt="Spots Logo"
-          class="header__logo"
-        />
+        <img id="header-logo" alt="Spots Logo" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img src="./images/avatar.jpg" alt="Avatar" class="profile__avatar" />
+          <img id="profile-avatar" alt="Avatar" class="profile__avatar" />
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-button">
-              <img src="./images/edit-pencil.svg" alt="Pencil icon" />Edit
-              Profile
+              <img id="pencil-icon" alt="Pencil icon" />Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-button">
-            <img src="./images/plus.svg" alt="Plus icon" />New Post
+            <img id="plus-icon" alt="Plus icon" />New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -138,7 +132,5 @@
         </div>
       </div>
     </div>
-    <script defer src="./scripts/index.js"></script>
-    <script defer src="./scripts/validation.js"></script>
   </body>
 </html>
