@@ -46,6 +46,11 @@
   line-height: 1;
 }
 
+.modal__title_type_delete {
+  font-size: 24px;
+  text-align: center;
+}
+
 .modal__close-button {
   background: transparent url(../images/close.svg) center no-repeat;
   position: absolute;
@@ -137,6 +142,47 @@
 
 .modal__save-button:hover {
   opacity: 80%;
+}
+
+.modal__delete-button {
+  font-weight: 500;
+  line-height: 1;
+  width: 156px;
+  height: 52px;
+  border: none;
+  cursor: pointer;
+  background-color: #ff6565;
+  color: #212121;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+}
+
+.modal__delete-button:hover {
+  background-color: #ff3333;
+}
+
+.modal__cancel-button {
+  font-weight: 500;
+  line-height: 1;
+  width: 156px;
+  height: 52px;
+  border: 1px solid #212121;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #212121;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+}
+
+.modal__cancel-button:hover {
+  background-color: #212121;
+  color: #ffffff;
+}
+
+.modal__action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 
 .modal__image {
