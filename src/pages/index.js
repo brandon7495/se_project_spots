@@ -55,6 +55,7 @@ const avatarButton = document.querySelector(".profile__avatar-button");
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = document.forms["edit-profile"];
 
+const editModalSaveButton = editModal.querySelector(".modal__save-button");
 const closeButtons = document.querySelectorAll(".modal__close-button");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
@@ -66,14 +67,17 @@ const cardModal = document.querySelector("#add-card-modal");
 const cardFormElement = cardModal.querySelector(".modal__form");
 const cardModalLinkInput = cardModal.querySelector("#card-link-input");
 const cardModalCaptionInput = cardModal.querySelector("#card-caption-input");
+const cardModalSaveButton = cardModal.querySelector(".modal__save-button");
 
 const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template");
 
+// Preview modal elements
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImage = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
 
+// Delete modal elements
 const deleteModal = document.querySelector("#delete-modal");
 const modalDeleteButton = deleteModal.querySelector(".modal__delete-button");
 const modalCancelButton = deleteModal.querySelector(".modal__cancel-button");
@@ -82,9 +86,9 @@ const modalCancelButton = deleteModal.querySelector(".modal__cancel-button");
 const avatarModal = document.querySelector("#avatar-modal");
 const avatarFormElement = avatarModal.querySelector(".modal__form");
 const avatarModalLinkInput = avatarModal.querySelector("#profile-avatar-input");
+const avatarModalSaveButton = avatarModal.querySelector(".modal__save-button");
 
-let selectedCard;
-let selectedCardId;
+let selectedCard, selectedCardId;
 
 function handleEscape(evt) {
   if (evt.key === "Escape") {
@@ -108,7 +112,8 @@ function openDeleteModal(cardElement, cardId) {
   modalCancelButton.addEventListener("click", handleModalCancel);
 }
 
-function handleModalDelete() {
+function handleModalDelete(evt) {
+  modalDeleteButton.textContent = "Deleting...";
   api
     .deleteCard(selectedCardId)
     .then(() => {
@@ -117,7 +122,12 @@ function handleModalDelete() {
       modalDeleteButton.removeEventListener("click", handleModalDelete);
       modalCancelButton.removeEventListener("click", handleModalCancel);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setTimeout(() => {
+        modalDeleteButton.textContent = "Delete";
+      }, 2000);
+    });
 }
 
 function handleModalCancel() {
@@ -140,6 +150,7 @@ function closeModal(modal) {
 
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
+  avatarModalSaveButton.textContent = "Saving...";
   api
     .editUserAvatar(avatarModalLinkInput.value)
     .then((data) => {
@@ -147,11 +158,17 @@ function handleAvatarFormSubmit(evt) {
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setTimeout(() => {
+        avatarModalSaveButton.textContent = "Save";
+      }, 2000);
+    });
 }
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+  editModalSaveButton.textContent = "Saving...";
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -162,11 +179,17 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = data.about;
       closeModal(editModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setTimeout(() => {
+        editModalSaveButton.textContent = "Save";
+      }, 2000);
+    });
 }
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
+  cardModalSaveButton.textContent = "Saving...";
   api
     .addNewCard({
       name: cardModalCaptionInput.value,
@@ -177,7 +200,12 @@ function handleCardFormSubmit(evt) {
       evt.target.reset();
       closeModal(cardModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setTimeout(() => {
+        cardModalSaveButton.textContent = "Save";
+      }, 2000);
+    });
 }
 
 function getCardElement(data) {
