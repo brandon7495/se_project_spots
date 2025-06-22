@@ -16,7 +16,12 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img id="profile-avatar" alt="Avatar" class="profile__avatar" />
+          <div class="profile__avatar-container">
+            <button type="button" class="profile__avatar-button">
+              <img id="pencil-icon-light" alt="Pencil Icon" />
+            </button>
+            <img id="profile-avatar" alt="Avatar" class="profile__avatar" />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -25,7 +30,7 @@
             </button>
           </div>
           <button type="button" class="profile__add-button">
-            <img id="plus-icon" alt="Plus icon" />New Post
+            <img id="plus-icon" alt="Plus Icon" />New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -144,6 +149,27 @@
             <button type="button" class="modal__delete-button">Delete</button>
             <button type="button" class="modal__cancel-button">Cancel</button>
           </div>
+        </div>
+      </div>
+      <div class="modal" id="avatar-modal">
+        <div class="modal__container">
+          <h2 class="modal__title">Edit profile avatar</h2>
+          <button type="button" class="modal__close-button"></button>
+          <form name="edit-avatar" class="modal__form" novalidate>
+            <label for="profile-avatar-input" class="modal__label">
+              Profile picture
+              <input
+                id="profile-avatar-input"
+                name="link"
+                type="url"
+                class="modal__input"
+                placeholder="Paste a link to an image"
+                required
+              />
+              <span id="profile-avatar-input-error" class="modal__error"></span>
+            </label>
+            <button type="submit" class="modal__save-button">Save</button>
+          </form>
         </div>
       </div>
     </div>
