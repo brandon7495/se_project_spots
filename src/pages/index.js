@@ -5,6 +5,7 @@ import {
   resetValidation,
 } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
+import { renderLoading, handleSubmit } from "../utils/utils.js";
 
 import headerSrc from "../images/spots-logo.svg";
 import avatarSrc from "../images/avatar.jpg";
@@ -229,7 +230,7 @@ function getCardElement(data) {
     if (cardLikeButton.classList.contains("card__like-button_liked")) {
       api
         .unlikeCard(data._id)
-        .then(() => {
+        .then((response) => {
           cardLikeButton.classList.toggle("card__like-button_liked");
           data.isLiked = response.isLiked;
         })
@@ -237,7 +238,7 @@ function getCardElement(data) {
     } else {
       api
         .likeCard(data._id)
-        .then(() => {
+        .then((response) => {
           cardLikeButton.classList.toggle("card__like-button_liked");
           data.isLiked = response.isLiked;
         })
