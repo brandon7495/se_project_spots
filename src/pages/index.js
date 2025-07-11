@@ -114,7 +114,7 @@ function openDeleteModal(cardElement, cardId) {
 }
 
 function handleModalDelete(evt) {
-  modalDeleteButton.textContent = "Deleting...";
+  renderLoading(true, modalDeleteButton, "Delete", "Deleting...");
   api
     .deleteCard(selectedCardId)
     .then(() => {
@@ -125,9 +125,7 @@ function handleModalDelete(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setTimeout(() => {
-        modalDeleteButton.textContent = "Delete";
-      }, 2000);
+      renderLoading(false, modalDeleteButton, "Delete");
     });
 }
 
@@ -150,63 +148,51 @@ function closeModal(modal) {
 }
 
 function handleAvatarFormSubmit(evt) {
-  evt.preventDefault();
-  avatarModalSaveButton.textContent = "Saving...";
-  api
-    .editUserAvatar(avatarModalLinkInput.value)
-    .then((data) => {
-      avatarModalLinkInput.value = data.avatar;
-      profileAvatar.src = data.avatar;
-      closeModal(avatarModal);
-    })
-    .catch(console.error)
-    .finally(() => {
-      setTimeout(() => {
-        avatarModalSaveButton.textContent = "Save";
-      }, 2000);
-    });
+  handleSubmit(
+    () =>
+      api.editUserAvatar(avatarModalLinkInput.value).then((data) => {
+        avatarModalLinkInput.value = data.avatar;
+        profileAvatar.src = data.avatar;
+        closeModal(avatarModal);
+      }),
+    evt,
+    "Saving..."
+  );
 }
 
 function handleEditFormSubmit(evt) {
-  evt.preventDefault();
-  editModalSaveButton.textContent = "Saving...";
-  api
-    .editUserInfo({
-      name: editModalNameInput.value,
-      about: editModalDescriptionInput.value,
-    })
-    .then((data) => {
-      profileName.textContent = data.name;
-      profileDescription.textContent = data.about;
-      closeModal(editModal);
-    })
-    .catch(console.error)
-    .finally(() => {
-      setTimeout(() => {
-        editModalSaveButton.textContent = "Save";
-      }, 2000);
-    });
+  handleSubmit(
+    () =>
+      api
+        .editUserInfo({
+          name: editModalNameInput.value,
+          about: editModalDescriptionInput.value,
+        })
+        .then((data) => {
+          profileName.textContent = data.name;
+          profileDescription.textContent = data.about;
+          closeModal(editModal);
+        }),
+    evt,
+    "Saving..."
+  );
 }
 
 function handleCardFormSubmit(evt) {
-  evt.preventDefault();
-  cardModalSaveButton.textContent = "Saving...";
-  api
-    .addNewCard({
-      name: cardModalCaptionInput.value,
-      link: cardModalLinkInput.value,
-    })
-    .then((data) => {
-      renderCard(data);
-      evt.target.reset();
-      closeModal(cardModal);
-    })
-    .catch(console.error)
-    .finally(() => {
-      setTimeout(() => {
-        cardModalSaveButton.textContent = "Save";
-      }, 2000);
-    });
+  handleSubmit(
+    () =>
+      api
+        .addNewCard({
+          name: cardModalCaptionInput.value,
+          link: cardModalLinkInput.value,
+        })
+        .then((data) => {
+          renderCard(data);
+          closeModal(cardModal);
+        }),
+    evt,
+    "Saving..."
+  );
 }
 
 function getCardElement(data) {

@@ -1,7 +1,3 @@
-// I don't understand how to implement these properly for both the save/saving...,
-// and the delete/deleting... buttons as well as what lines each function is already
-// handleing and can be removed.
-
 export function renderLoading(
   isLoading,
   button,
